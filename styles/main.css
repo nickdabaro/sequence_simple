@@ -83,22 +83,24 @@ body {
 }
 #sequence {
   background-color: #00BFFF;
-  height: 550px;
+  height: 460px;
   text-align: center;
-  padding-top: 280px;
+  padding-top: 220px;
 }
 
 #sequence2 {
   background-color: #0000FF;
   text-align: center;
   padding-top: 42px;
-  min-height: 300px;
+  min-height: 400px;
 }
 
 .image {
     box-shadow:0 0 7px 2px black;
-    min-height: 230px;
-    min-width: 210px;
+    /* min-height: 230px; */
+    min-width: 190px;
+    /* padding: 20px; */
+
 }
 
 html {
@@ -108,7 +110,7 @@ html {
 #menuDashboard {
   background-color: #0000FF;
   padding: 50px;
-  max-height: 305px;
+  max-height: 270px;
 
 }
 
@@ -128,13 +130,21 @@ html {
     color: white;
 }
 
-#quitter {
-    max-height: 230px;
-    max-width: 210px;
-    margin:5px;
-    font-size:2.0em;
-    float:right;
+.reponseImage {
+    box-shadow:0 0 7px 2px black;
+    /* min-height: 230px; */
+    max-height: 190px;
+
 }
+#oui {
+  display: none;
+}
+#non {
+  display: none;
+}
+
+
+
 
 
 

@@ -1,26 +1,48 @@
 var compteur=2;
-var sequences
+var level0;
+var level1;
+var level2;
+var level3;
 var audio_bonne = new Audio('../sons/bonne.mp3');
 var audio_mauvaise = new Audio('../sons/mauvaise.mp3');
 
 function init(){
-	//code XMLHttpRequest
-	var req = new XMLHttpRequest();
-	req.open("GET", "../sequences.json", true); 
-	req.onreadystatechange = monCode;   // la fonction de prise en charge
-	req.send(null); 
+
+	// tableau des objects, chaque object une seq
+	level0 = JSON.parse(levelzero);
+	console.log(level0);
+	// je recupere la premiere seq
+	console.log(level0[0]);
+
+	// tableau des objects, chaque object une seq
+	level1 = JSON.parse(levelone);
+	console.log(level1);
+	// je recupere la premiere seq
+	console.log(level1[0]);
+
+	// tableau des objects, chaque object une seq
+	level2 = JSON.parse(leveltwo);
+	console.log(level2);
+	// je recupere la premiere seq
+	console.log(level2[0]);
+
+	// tableau des objects, chaque object une seq
+	level3 = JSON.parse(levelthree);
+	console.log(level3);
+	// je recupere la premiere seq
+	console.log(level3[0]);
+ }
 
 
-	//travail récupération et affichage images
+// On a besoin pour charger le JSON
+window.onload = init;
 
-}
-
-function monCode() 
-{ 
-   if (req.readyState == 4){ 
-        doc = eval('(' + req.responseText + ')'); 
+function monCode()
+{
+   if (req.readyState == 4){
+        doc = eval('(' + req.responseText + ')');
    }
-} 
+}
 
 
 function verification(e){
@@ -47,12 +69,29 @@ function bonneReponse(e){
 		e.style.position = "absolute";
 		e.style.left=offset;
 		e.removeAttribute("onClick");*/
-	
+
+	// On n'ffiche pas l'image non
+	var non=document.getElementById("non");
+	non.style.display = "none";
+
+	// On affiche l'image oui
+	var oui=document.getElementById("oui");
+	oui.style.display = "block";
+
 	audio_bonne.play();
 	audio_bonne.currentTime = 0;
 }
 
-function mauvaiseReponse(){	
+function mauvaiseReponse(){
+
+	// On n'affiche pas l'image oui
+	var oui=document.getElementById("oui");
+	oui.style.display = "none";
+
+	// On affiche l'image non
+	var non=document.getElementById("non");
+	non.style.display = "block";
+
 	audio_mauvaise.play();
 	audio_mauvaise.currentTime = 0;
 }
