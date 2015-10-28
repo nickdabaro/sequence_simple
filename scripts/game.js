@@ -1,5 +1,7 @@
 var compteur=2;
 var sequences
+var audio_bonne = new Audio('../sons/bonne.mp3');
+var audio_mauvaise = new Audio('../sons/mauvaise.mp3');
 
 function init(){
 	//code XMLHttpRequest
@@ -45,6 +47,12 @@ function bonneReponse(e){
 		e.style.position = "absolute";
 		e.style.left=offset;
 		e.removeAttribute("onClick");*/
+	
+	audio_bonne.play();
+	console.log("yes")
 }
 
-function mauvaiseReponse(){console.log("mauvaise réponse")}
+function mauvaiseReponse(){	
+	audio_mauvaise.play();
+	console.log("no")
+}
