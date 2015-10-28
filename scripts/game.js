@@ -1,4 +1,4 @@
-var compteur=1;
+var compteur=2;
 var sequences
 
 function init(){
@@ -21,11 +21,10 @@ function monCode()
 } 
 
 
-function verification(Element e){
-	var src=e.src;
-	var name=src.split("/")[2].split(".")[0];
+function verification(e){
+	var tab_src=e.src.split("/");
+	var name=tab_src[tab_src.length-1].split(".")[0];
 	var nb_image=name.charAt(name.length-1);
-
 	if(nb_image==compteur){
 		compteur++;
 		bonneReponse(e);
@@ -34,11 +33,14 @@ function verification(Element e){
 	}
 }
 
-function bonneReponse(Element e){
+function bonneReponse(e){
 	//Afficher image bonne réponse
 	//son
 
-		var offset=document.getElementById("true_image"+compteur-1).offsetLeft;
+		var offset=document.getElementById("true_image"+(compteur-1)).offsetLeft;
+		console.log(offset)
 		e.offsetLeft=offset;
-	}
+		e.removeAttribute("onClick");
 }
+
+function mauvaiseReponse(){console.log("mauvaise réponse")}
