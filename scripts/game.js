@@ -49,10 +49,10 @@ function bonneReponse(e){
 		e.removeAttribute("onClick");*/
 	
 	audio_bonne.play();
-	console.log("yes")
+	audio_bonne.currentTime = 0;
 }
 
 function mauvaiseReponse(){	
 	audio_mauvaise.play();
-	console.log("no")
+	audio_mauvaise.currentTime = 0;
 }
