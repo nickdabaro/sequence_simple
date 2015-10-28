@@ -36,11 +36,15 @@ function verification(e){
 function bonneReponse(e){
 	//Afficher image bonne réponse
 	//son
-
-		var offset=document.getElementById("true_image"+(compteur-1)).offsetLeft;
-		console.log(offset)
-		e.offsetLeft=offset;
-		e.removeAttribute("onClick");
+	var obj=document.getElementById("true_image"+(compteur-1));
+	console.log(e.src);
+	obj.src = e.src;
+	e.style.display = "none";
+		/*var offset=document.getElementById("true_image"+(compteur-1)).offsetLeft;
+		console.log(offset);
+		e.style.position = "absolute";
+		e.style.left=offset;
+		e.removeAttribute("onClick");*/
 }
 
 function mauvaiseReponse(){console.log("mauvaise réponse")}
