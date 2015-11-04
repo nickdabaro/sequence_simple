@@ -12,9 +12,9 @@ function init(){
 
 	nbsequence = 1;
 
-	initLevel0();
+	//initLevel0();
 
-	//initLevel1(nbsequence);
+	initLevel1(nbsequence);
 
 	// tableau des objects, chaque object une seq
 	//level2 = JSON.parse(leveltwo);
@@ -38,14 +38,20 @@ function init(){
 
 	var sequence = level1[nbsequence%sizelevel];
 
+	console.log(sequence);
+
+	var index = [1, 2, 3];
+
+	var indexRandon = randomizeArray(index);
+
 	var image1=document.getElementById("image1");
-	image1.src = url.concat(sequence[1]);
+	image1.src = url.concat(sequence[indexRandon[0]]);
 
 	var image2=document.getElementById("image2");
-	image2.src = url.concat(sequence[2]);
+	image2.src = url.concat(sequence[indexRandon[1]]);
 
 	var image3=document.getElementById("image3");
-	image3.src = url.concat(sequence[3]);
+	image3.src = url.concat(sequence[indexRandon[2]]);
  }
 
 
@@ -87,6 +93,14 @@ function verification(e){
 	}else{
 		mauvaiseReponse();
 	}
+}
+
+function randomizeArray(arr) {
+    var output = [];
+    while (arr.length) {
+        output.push(arr.splice(Math.floor(Math.random() * arr.length), 1)[0]);
+    }
+    return output;
 }
 
 function bonneReponse(e){
