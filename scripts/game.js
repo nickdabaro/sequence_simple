@@ -2,6 +2,7 @@ var compteur=1;
 var nbsequence;
 var sequence;
 var nameLevel;
+var sizeSeq;
 var url = "../images/";
 var audio_bonne = new Audio('../sons/bonne.mp3');
 var audio_mauvaise = new Audio('../sons/mauvaise.mp3');
@@ -33,7 +34,7 @@ function init(){
 	console.log(sequence);
 
 	var index = [1, 2, 3];
-
+	 sizeSeq = 3;
 	var indexRandon = randomizeArray(index);
 
 	var image1=document.getElementById("image1");
@@ -52,7 +53,7 @@ function init(){
 	var level0 = JSON.parse(levelzero);
 
 	sequence = level0[0];
-
+	 sizeSeq = 3;
 	var image1=document.getElementById("image1");
 	image1.src = url.concat(sequence[2]);
 
@@ -69,9 +70,8 @@ window.onload = init;
 
 function verification(e){
 	var tab_src=e.src.split("/");
-	var name=tab_src[tab_src.length-1].split(".")[0];
-	var nb_image=name.charAt(name.length-1);
-	if(nb_image==compteur){
+	var name=tab_src[tab_src.length-1];
+	if(name==sequence[compteur]){
 		compteur++;
 		bonneReponse(e);
 	}else{
@@ -102,9 +102,23 @@ function bonneReponse(e){
 	// On affiche l'image oui
 	var oui=document.getElementById("oui");
 	oui.style.display = "block";
-
-	audio_bonne.play();
-	audio_bonne.currentTime = 0;
+	console.log(compteur);
+	console.log(sequence.length);
+	if (compteur > sizeSeq){
+		audio_applaudissement.play();
+		audio_applaudissement.currentTime = 0;
+		nbsequence++;
+		switch (nameLevel){
+			case "niveau0.html": initLevel0();//retour menu
+				break;
+			case "niveau1.html": initLevel1(nbsequence);
+				break;
+		}
+	}
+	else{
+		audio_bonne.play();
+		audio_bonne.currentTime = 0;
+	}
 }
 
 function mauvaiseReponse(){
