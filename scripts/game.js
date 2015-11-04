@@ -1,10 +1,7 @@
 var compteur=1;
 var nbsequence;
+var sequence;
 var url = "../images/";
-var level0;
-var level1;
-var level2;
-var level3;
 var audio_bonne = new Audio('../sons/bonne.mp3');
 var audio_mauvaise = new Audio('../sons/mauvaise.mp3');
 
@@ -32,11 +29,11 @@ function init(){
 
  function initLevel1 (nbsequence) {
 
-	level1 = JSON.parse(levelone);
+	var level1 = JSON.parse(levelone);
 
 	sizelevel = level1.length;
 
-	var sequence = level1[nbsequence%sizelevel];
+	sequence = level1[nbsequence%sizelevel];
 
 	var image1=document.getElementById("image1");
 	image1.src = url.concat(sequence[1]);
@@ -51,9 +48,9 @@ function init(){
 
  function initLevel0 () {
 
-	level0 = JSON.parse(levelzero);
+	var level0 = JSON.parse(levelzero);
 
-	var sequence = level0[0];
+	sequence = level0[0];
 
 	var image1=document.getElementById("image1");
 	image1.src = url.concat(sequence[2]);
