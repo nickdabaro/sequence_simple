@@ -1,4 +1,6 @@
-var compteur=2;
+var compteur=1;
+var nbsequence;
+var url = "../images/";
 var level0;
 var level1;
 var level2;
@@ -8,29 +10,59 @@ var audio_mauvaise = new Audio('../sons/mauvaise.mp3');
 
 function init(){
 
-	// tableau des objects, chaque object une seq
-	level0 = JSON.parse(levelzero);
-	console.log(level0);
-	// je recupere la premiere seq
-	console.log(level0[0]);
+	nbsequence = 1;
+
+	initLevel0();
+
+	//initLevel1(nbsequence);
 
 	// tableau des objects, chaque object une seq
+	//level2 = JSON.parse(leveltwo);
+	//console.log(level2);
+	// je recupere la premiere seq
+	//console.log(level2[0]);
+
+	// tableau des objects, chaque object une seq
+	//level3 = JSON.parse(levelthree);
+	//console.log(level3);
+	// je recupere la premiere seq
+	//console.log(level3[0]);
+
+ }
+
+ function initLevel1 (nbsequence) {
+
 	level1 = JSON.parse(levelone);
-	console.log(level1);
-	// je recupere la premiere seq
-	console.log(level1[0]);
 
-	// tableau des objects, chaque object une seq
-	level2 = JSON.parse(leveltwo);
-	console.log(level2);
-	// je recupere la premiere seq
-	console.log(level2[0]);
+	sizelevel = level1.length;
 
-	// tableau des objects, chaque object une seq
-	level3 = JSON.parse(levelthree);
-	console.log(level3);
-	// je recupere la premiere seq
-	console.log(level3[0]);
+	var sequence = level1[nbsequence%sizelevel];
+
+	var image1=document.getElementById("image1");
+	image1.src = url.concat(sequence[1]);
+
+	var image2=document.getElementById("image2");
+	image2.src = url.concat(sequence[2]);
+
+	var image3=document.getElementById("image3");
+	image3.src = url.concat(sequence[3]);
+ }
+
+
+ function initLevel0 () {
+
+	level0 = JSON.parse(levelzero);
+
+	var sequence = level0[0];
+
+	var image1=document.getElementById("image1");
+	image1.src = url.concat(sequence[2]);
+
+	var image2=document.getElementById("image2");
+	image2.src = url.concat(sequence[3]);
+
+	var image3=document.getElementById("image3");
+	image3.src = url.concat(sequence[1]);
  }
 
 

@@ -1,4 +1,4 @@
-levelzero = '[{"1" : "seq1.png", "2" : "seq2.png", "3" : "seq3.png"}]';
-levelone = '[{"1" : "seq1.png", "2" : "seq2.png", "3" : "seq3.png"},{"1" : "rain1.png", "2" : "rain2.png","3" : "rain3.png"}]';
+levelzero = '[{"1" : "rain1.png", "2" : "rain2.png", "3" : "rain3.png"}]';
+levelone = '[{"1" : "paint1.png", "2" : "paint2.png", "3" : "paint3.png"},{"1" : "rain1.png", "2" : "rain2.png","3" : "rain3.png"}]';
 leveltwo = '[{"1" : "seq1.png", "2" : "seq2.png", "3" : "seq3.png"},{"1" : "rain1.png", "2" : "rain2.png","3" : "rain3.png"}]';
 levelthree = '[{"1" : "seq1.png", "2" : "seq2.png", "3" : "seq3.png"},{"1" : "rain1.png", "2" : "rain2.png","3" : "rain3.png"}]';
