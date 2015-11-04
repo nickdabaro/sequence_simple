@@ -9,9 +9,9 @@ function init(){
 
 	nbsequence = 1;
 
-	//initLevel0();
+	initLevel0();
 
-	initLevel1(nbsequence);
+	//initLevel1(nbsequence);
 
 	// tableau des objects, chaque object une seq
 	//level2 = JSON.parse(leveltwo);
