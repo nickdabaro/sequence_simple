@@ -146,8 +146,15 @@ function initLevel3 (nbsequence) {
 
 	var image3=document.getElementById("image3");
 	image3.src = url.concat(sequence[1]);
+
+	 setTimeout(function () {simulateClick("image3")}, 1000);
  }
 
+var simulateClick = function(image){
+	var evt = document.createEvent("MouseEvents");
+	evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+	document.getElementById(image).dispatchEvent(evt);
+}
 
 // On a besoin pour charger le JSON
 window.onload = init;
@@ -179,18 +186,15 @@ function changeSeq(){
 	console.log(nbsequence);
 
 	switch (nameLevel){
-		case "niveau0.html": initLevel0();//retour menu
+		case "niveau0.html":window.location.replace("../views/index.html");//retour menu
 			break;
 		case "niveau1.html": initLevel1(nbsequence);
-
 			window.location.reload();
 			break;
 		case "niveau2.html": initLevel2(nbsequence);
-
 			window.location.reload();
 			break;
 		case "niveau3.html": initLevel3(nbsequence);
-
 			window.location.reload();
 			break;
 	}
@@ -203,7 +207,7 @@ function bonneReponse(e){
 	obj.src = e.src;
 	e.style.display = "none";
 
-	// On n'ffiche pas l'image non
+	// On n'affiche pas l'image non
 	var non=document.getElementById("non");
 	non.style.display = "none";
 
@@ -221,6 +225,14 @@ function bonneReponse(e){
 	else{
 		audio_bonne.play();
 		audio_bonne.currentTime = 0;
+	}
+	if (nameLevel == "niveau0.html" && compteur <= sizeSeq){
+		if (compteur<3){
+            setTimeout(function () {simulateClick("image1")}, 1000);
+        }
+		else{
+            setTimeout(function () {simulateClick("image2")}, 1000);
+        }
 	}
 }
 
