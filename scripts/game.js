@@ -21,6 +21,8 @@ function init(){
 			break;
 		case "niveau2.html": initLevel2(nbsequence);
 			break;
+		case "niveau3.html": initLevel3(nbsequence);
+			break;
 	}
 
  }
@@ -92,6 +94,44 @@ function initLevel2 (nbsequence) {
 	image4.src = url.concat(sequence[indexRandon[3]]);
 }
 
+function initLevel3 (nbsequence) {
+
+	var level3 = JSON.parse(levelthree);
+
+	sizelevel = level3.length;
+	nbsequence =  sessionStorage.getItem("nbsequence");
+	if(nbsequence == null){
+		sessionStorage.setItem("nbsequence", 1);
+		nbsequence =  sessionStorage.getItem("nbsequence");
+	}
+	console.log(nbsequence);
+	sequence = level3[nbsequence%sizelevel];
+
+	console.log(sequence);
+
+	var index = [1, 2, 3, 4, 5];
+	sizeSeq = 5;
+	var indexRandon = randomizeArray(index);
+
+	var image1=document.getElementById("image1");
+	image1.src = url.concat(sequence[indexRandon[0]]);
+	//image1.style.display="block";
+
+	var image2=document.getElementById("image2");
+	image2.src = url.concat(sequence[indexRandon[1]]);
+	//image2.style.display="block";
+
+	var image3=document.getElementById("image3");
+	image3.src = url.concat(sequence[indexRandon[2]]);
+	//image3.style.display="block";
+
+	var image4=document.getElementById("image4");
+	image4.src = url.concat(sequence[indexRandon[3]]);
+
+	var image5=document.getElementById("image5");
+	image5.src = url.concat(sequence[indexRandon[4]]);
+}
+
  function initLevel0 () {
 
 	var level0 = JSON.parse(levelzero);
@@ -146,6 +186,10 @@ function changeSeq(){
 			window.location.reload();
 			break;
 		case "niveau2.html": initLevel2(nbsequence);
+
+			window.location.reload();
+			break;
+		case "niveau3.html": initLevel3(nbsequence);
 
 			window.location.reload();
 			break;
