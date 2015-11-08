@@ -19,6 +19,8 @@ function init(){
 			break;
 		case "niveau1.html": initLevel1(nbsequence);
 			break;
+		case "niveau2.html": initLevel2(nbsequence);
+			break;
 	}
 
  }
@@ -55,6 +57,40 @@ function init(){
 	 //image3.style.display="block";
  }
 
+function initLevel2 (nbsequence) {
+
+	var level2 = JSON.parse(leveltwo);
+
+	sizelevel = level2.length;
+	nbsequence =  sessionStorage.getItem("nbsequence");
+	if(nbsequence == null){
+		sessionStorage.setItem("nbsequence", 1);
+		nbsequence =  sessionStorage.getItem("nbsequence");
+	}
+	console.log(nbsequence);
+	sequence = level2[nbsequence%sizelevel];
+
+	console.log(sequence);
+
+	var index = [1, 2, 3, 4];
+	sizeSeq = 4;
+	var indexRandon = randomizeArray(index);
+
+	var image1=document.getElementById("image1");
+	image1.src = url.concat(sequence[indexRandon[0]]);
+	//image1.style.display="block";
+
+	var image2=document.getElementById("image2");
+	image2.src = url.concat(sequence[indexRandon[1]]);
+	//image2.style.display="block";
+
+	var image3=document.getElementById("image3");
+	image3.src = url.concat(sequence[indexRandon[2]]);
+	//image3.style.display="block";
+
+	var image4=document.getElementById("image4");
+	image4.src = url.concat(sequence[indexRandon[3]]);
+}
 
  function initLevel0 () {
 
@@ -106,6 +142,10 @@ function changeSeq(){
 		case "niveau0.html": initLevel0();//retour menu
 			break;
 		case "niveau1.html": initLevel1(nbsequence);
+
+			window.location.reload();
+			break;
+		case "niveau2.html": initLevel2(nbsequence);
 
 			window.location.reload();
 			break;
