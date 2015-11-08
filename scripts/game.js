@@ -216,8 +216,7 @@ function bonneReponse(e){
 			audio_applaudissement.currentTime = 0;
 
 		}
-
-		changeSeq();
+		var x = setTimeout(changeSeq, 3000);
 	}
 	else{
 		audio_bonne.play();
