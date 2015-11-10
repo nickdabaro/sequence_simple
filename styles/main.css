@@ -105,6 +105,21 @@ body {
 
 }
 
+
+.image1 {
+    box-shadow:0 0 7px 2px black;
+    margin-left: 20px;
+    max-height: 150px;
+    min-height: 150px;
+}
+
+.image2 {
+    box-shadow:0 0 7px 2px black;
+    margin-left: 20px;
+    max-height: 130px;
+}
+
+
 html {
   background-color: #0000FF;
 }
